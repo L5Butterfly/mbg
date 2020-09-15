@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+    <context id="base_resource" targetRuntime="MyBatis3">
+        <property name="javaFileEncoding" value="UTF-8"/>
+        <property name="javaFormatter" value="org.mybatis.generator.api.dom.DefaultJavaFormatter"/>
+        <property name="xmlFormatter" value="org.mybatis.generator.api.dom.DefaultXmlFormatter"/>
+        <plugin type="com.oxygen.mbgtools.mybatis.plugin.MybatisPlugin"></plugin>
+
+        <!--自定义生成规则-->
+        <commentGenerator type="com.oxygen.mbgtools.mybatis.plugin.DG2CommentGenerator">
+            <!-- <property name="suppressAllComments" value="true" /> -->
+            <!-- 是否去除自动生成的时间注释 true：是 ： false:否 -->
+            <property name="suppressDate" value="true"/>
+        </commentGenerator>
+
+        <!--数据库链接URL，用户名、密码 -->
+        <jdbcConnection
+                connectionURL="jdbc:mysql://127.0.0.1:3306/petbaby_manage?useUnicode=true&amp;characterEncoding=UTF-8&amp;useJDBCCompliantTimezoneShift=true&amp;useLegacyDatetimeCode=false&amp;serverTimezone=UTC&amp;useSSL=false"
+                driverClass="com.mysql.cj.jdbc.Driver"  userId="root" password="root" />
+
+        <!-- 类型解析器-->
+        <javaTypeResolver type="com.oxygen.mbgtools.mybatis.plugin.MybatisResolver">
+            <property name="forceBigDecimals" value="true"/>
+        </javaTypeResolver>
+
+        <!-- 生成模型的包名和位置 -->
+        <javaModelGenerator targetPackage="com.oxygen.mbgtools.domain" targetProject="src/main/java">
+            <property name="enableSubPackages" value="true"/>
+            <property name="trimStrings" value="true"/>
+        </javaModelGenerator>
+
+        <!-- 生成映射文件的包名和位置 -->
+        <!--<sqlMapGenerator targetPackage="com.oxygen.mbgtools.mapper" targetProject="src/generate/resources">
+            <property name="enableSubPackages" value="true"/>
+        </sqlMapGenerator>-->
+
+        <sqlMapGenerator targetPackage="mapper" targetProject="src/main/resources">
+            <property name="enableSubPackages" value="true"/>
+        </sqlMapGenerator>
+
+        <!-- 生成DAO的包名和位置 -->
+        <javaClientGenerator targetPackage="com.oxygen.mbgtools.mapper" targetProject="src/main/java" type="XMLMAPPER">
+            <property name="enableSubPackages" value="true"/>
+        </javaClientGenerator>
+
+        <!--tables-->
+        <!--
+        <table domainObjectName="AllocateRelationDO" tableName="allocate_relation">
+            <generatedKey column="id" sqlStatement="JDBC"/>
+            <columnOverride column="feature" javaType="java.util.Map"
+                            typeHandler="com.oxygen.mbgtools.mybatis.component.JsonMapTypeHandler"/>
+        </table>
+
+        <table domainObjectName="TranDetailDO" tableName="tran_detail">
+            <generatedKey column="id" sqlStatement="JDBC"/>
+            <columnOverride column="feature" javaType="java.util.Map"
+                            typeHandler="com.oxygen.mbgtools.mybatis.component.JsonMapTypeHandler"/>
+        </table>
+
+        <table domainObjectName="InventoryItemDO" tableName="inventory_item">
+            <generatedKey column="id" sqlStatement="JDBC"/>
+            <columnOverride column="feature" javaType="java.util.Map"
+                            typeHandler="com.oxygen.mbgtools.mybatis.component.JsonMapTypeHandler"/>
+        </table>
+
+        <table domainObjectName="ConfigInfoDO" tableName="config_info">
+            <generatedKey column="id" sqlStatement="JDBC"/>
+        </table>
+        -->
+        <table domainObjectName="RoleDO" tableName="role">
+            <generatedKey column="id" sqlStatement="JDBC"/>
+        </table>
+
+        <table domainObjectName="MenuDO" tableName="menu">
+            <generatedKey column="id" sqlStatement="JDBC"/>
+        </table>
+
+        <!--MybatisGenerator生成WithBLOBS.java文件解决方案-->
+        <table domainObjectName="PetTrendsEntityDO" tableName="pet_trends_entity">
+            <generatedKey column="id" sqlStatement="JDBC"/>
+            <columnOverride column="content" javaType="java.lang.String" jdbcType="VARCHAR" />
+        </table>
+
+    </context>
+    <!--
+        mvn -Dmybatis.generator.overwrite=true mybatis-generator:generate
+     -->
+</generatorConfiguration>
