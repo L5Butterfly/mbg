@@ -7,7 +7,7 @@ import java.util.List;
 
 /**
  * 通用的数据库实体操作接口
- * @author oxygen
+ * 
  * @date 2020/7/9
  *
  * @param <T>  数据对象

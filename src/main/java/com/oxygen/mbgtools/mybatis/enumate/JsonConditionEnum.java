@@ -3,7 +3,7 @@ package com.oxygen.mbgtools.mybatis.enumate;
 
 /**
  * 
- * @author oxygen
+ * 
  * @date 2020/7/9
  **/
 public enum  JsonConditionEnum {

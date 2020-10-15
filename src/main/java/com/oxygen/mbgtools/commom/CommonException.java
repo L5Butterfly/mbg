@@ -3,7 +3,7 @@ package com.oxygen.mbgtools.commom;
 /**
  * 通用异常类
  * 项目内所有异常均要捕获封装成该类或其子类的异常后再抛出，并设置明确的code和msg信息
- * @author oxygen
+ * 
  */
 public class CommonException extends RuntimeException {
     private static final long serialVersionUID = 4690312905649535054L;

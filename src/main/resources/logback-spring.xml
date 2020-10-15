@@ -35,16 +35,12 @@
     </appender>
 
     <springProfile name="production">
-<!--        <logger name="com.alibaba.dts" level="ERROR"></logger>-->
-<!--        <logger name="com.taobao.tddl" level="ERROR"></logger>-->
         <root level="INFO">
             <appender-ref ref="APPLICATION"/>
             <appender-ref ref="ALIMONITOR"/>
         </root>
     </springProfile>
     <springProfile name="!production">
-<!--        <logger name="com.alibaba.dts" level="ERROR"></logger>-->
-<!--        <logger name="com.taobao.tddl" level="ERROR"></logger>-->
         <logger name="com.oxygen.mbgtools.mapper" level="DEBUG"></logger>
         <root level="INFO">
             <appender-ref ref="APPLICATION"/>
@@ -52,8 +48,6 @@
         </root>
     </springProfile>
     <springProfile name="staging">
-<!--        <logger name="com.alibaba.dts" level="INFO"></logger>-->
-<!--        <logger name="com.taobao.tddl" level="INFO"></logger>-->
         <logger name="com.oxygen.mbgtools.mapper" level="DEBUG"></logger>
         <root level="INFO">
             <appender-ref ref="APPLICATION"/>
@@ -61,8 +55,6 @@
         </root>
     </springProfile>
     <springProfile name="project">
-<!--        <logger name="com.taobao.tddl" level="INFO"></logger>-->
-<!--        <logger name="com.alibaba.dts" level="INFO"></logger>-->
         <logger name="com.oxygen.mbgtools.mapper" level="DEBUG"></logger>
         <root level="INFO">
             <appender-ref ref="CONSOLE"/>
@@ -70,17 +62,13 @@
         </root>
     </springProfile>
     <springProfile name="test">
-<!--        <logger name="com.taobao.tddl" level="INFO"></logger>-->
-<!--        <logger name="com.alibaba.dts" level="INFO"></logger>-->
         <logger name="com.oxygen.mbgtools.mapper" level="DEBUG"></logger>
         <root level="INFO">
-            <appender-ref ref="CONSOLE"/>
+            <!--<appender-ref ref="CONSOLE"/>-->
             <appender-ref ref="APPLICATION"/>
         </root>
     </springProfile>
     <springProfile name="dev">
-<!--        <logger name="com.taobao.tddl" level="ERROR"></logger>-->
-<!--        <logger name="com.alibaba.dts" level="ERROR"></logger>-->
         <logger name="com.oxygen.mbgtools.mapper" level="DEBUG"></logger>
         <root level="INFO">
             <appender-ref ref="CONSOLE"/>

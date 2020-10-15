@@ -24,5 +24,8 @@ public class MbgToolsApplication {
 		ConfigurableApplicationContext app = SpringApplication.run(MbgToolsApplication.class, args);
 		String[] beanDefinitionNames = app.getBeanDefinitionNames();
 		log.info("一共扫描到{}个Bean实例",beanDefinitionNames.length);
+		for (int i = 0; i < beanDefinitionNames.length; i++) {
+			//System.out.println( beanDefinitionNames[i]);
+		}
 	}
 }

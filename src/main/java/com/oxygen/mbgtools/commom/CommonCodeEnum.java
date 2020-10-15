@@ -2,7 +2,7 @@ package com.oxygen.mbgtools.commom;
 
 
 /**
- * @author oxygen
+ * 
  * @description  错误码
  * @date 2020/5/8 15:57
  **/

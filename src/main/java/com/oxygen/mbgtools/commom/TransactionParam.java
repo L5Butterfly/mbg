@@ -2,7 +2,7 @@ package com.oxygen.mbgtools.commom;
 
 
 /**
- * @author oxygen
+ * 
  * @description TransactionParam事务错误信息包装类
  * @date 2020/5/8 16:02
  **/
