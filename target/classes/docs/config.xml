@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
+<generatorConfiguration>
+    <!-- 引入配置文件 -->
+    <properties resource="jdbc.properties"/>
+
+    <!-- 指定数据连接驱动jar地址 -->
+    <!--<classPathEntry location="${classPath}" />-->
+
+    <!--对应的模块  -->
+    <context id="lanly">
+
+        <property name="javaFileEncoding" value="UTF-8"/>
+        <!--分页插件，但是此插件并不是使用limit,而是通过ResultSet的游标来实现分页，所以数据量大的情况下会影响效率，之后会更新为limit分页插件-->
+        <plugin type="org.mybatis.generator.plugins.RowBoundsPlugin"/>
+        <!--这个插件主要用来为生成的Java模型类添加序列化接口，并生成serialVersionUID字段-->
+        <plugin type="org.mybatis.generator.plugins.SerializablePlugin"/>
+        <!--这个插件用来在XXXExample类中生成大小写敏感的LIKE方法（插件本身用处不大，但是我们可以通过这个插件学习给XXXExample类添加额外的方法）-->
+        <plugin type="org.mybatis.generator.plugins.CaseInsensitiveLikePlugin"/>
+
+        <!-- 注释 -->
+        <commentGenerator>
+            <property name="suppressAllComments" value="true"/>
+            <!-- 是否取消注释 -->
+            <property name="suppressDate" value="true"/>
+            <!-- 是否生成注释代时间戳-->
+        </commentGenerator>
+
+        <!-- jdbc连接 -->
+        <jdbcConnection driverClass="${jdbc.driver}"
+                        connectionURL="${jdbc.url}" userId="${jdbc.username}"
+                        password="${jdbc.password}"/>
+
+        <!-- 类型解析器 默认false，把JDBC DECIMAL 和 NUMERIC 类型解析为 Integer，为 true时把JDBC DECIMAL 和 NUMERIC 类型解析为java.math.BigDecimal -->
+        <javaTypeResolver>
+            <property name="forceBigDecimals" value="false"/>
+            <!-- This property is used to specify whether MyBatis Generator should force the use of JSR-310 data types for DATE, TIME,
+            and TIMESTAMP fields, rather than using java.util.Date -->
+            <!--当useJSR310Types为true时，就会jdbc对应的日期类型会转成java8中的LocateDateTime类型，如果useJSR310Types为false，则还是转成java.util.Date类型-->
+            <property name="useJSR310Types" value="true"/>
+        </javaTypeResolver>
+
+        <!-- 生成实体类地址 -->
+        <javaModelGenerator targetPackage="${domainPackage}.lanly"
+                            targetProject="${domainProject}">
+            <!-- 是否在当前路径下新加一层schema,eg：fase路径com.oop.eksp.user.model， true:com.oop.eksp.user.model.[schemaName] -->
+            <property name="enableSubPackages" value="false"/>
+            <!-- 是否针对string类型的字段在set的时候进行trim调用 -->
+            <property name="trimStrings" value="true"/>
+        </javaModelGenerator>
+
+        <!-- 生成mapxml文件 -->
+        <sqlMapGenerator targetPackage="${mapxmlPackage}.lanly"
+                         targetProject="${mapxmlProject}">
+            <!-- 是否在当前路径下新加一层schema,eg：fase路径com.oop.eksp.user.model， true:com.oop.eksp.user.model.[schemaName] -->
+            <property name="enableSubPackages" value="false"/>
+        </sqlMapGenerator>
+
+        <!-- 生成mapxml对应client，也就是接口dao -->
+        <javaClientGenerator targetPackage="${daoPackage}.lanly"
+                             targetProject="${daoProject}" type="XMLMAPPER">
+            <!-- 是否在当前路径下新加一层schema,eg：fase路径com.oop.eksp.user.model， true:com.oop.eksp.user.model.[schemaName] -->
+            <property name="enableSubPackages" value="false"/>
+        </javaClientGenerator>
+
+        <!-- 配置表信息 -->
+        <table tableName="lanly_%">
+            <!-- schema即为数据库名 tableName为对应的数据库表 domainObjectName是要生成的实体类 enable*ByExample
+                      是否生成 example类   -->
+
+            <!-- 忽略列，不生成bean 字段 -->
+            <!--<ignoreColumn column="FRED" />-->
+            <!-- 指定列的java数据类型 -->
+            <!--<columnOverride column="LONG_VARCHAR_FIELD" jdbcType="VARCHAR" />-->
+
+            <!--<generatedKey column="ID" sqlStatement="SELECT SEQ_BA_MENU.NEXTVAL FROM dual"/>-->
+        </table>
+    </context>
+</generatorConfiguration>

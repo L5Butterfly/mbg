@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- 拦截器配置 -->
+    <bean id="exceptionFilter" class="com.oxygen.mbgtools.commom.filter.CommonExceptionFilter"/>
+
+
+    <!--sqlSessionFactory 配置 -->
+    <!-- 事务控制配置 -->
+    <!--<bean id="transactionUtil" class="com.oxygen.mbgtools.commom.TransactionUtil"/>-->
+
+    <!--<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName" value="com.mysql.jdbc.Driver" />
+        <property name="url" value="jdbc:mysql://localhost:3306/diamond?useUnicode=true;characterEncoding=UTF-8;useSSL=false" />
+        <property name="username"  value="root" />
+        <property name="password" value="root"/>
+    </bean>
+
+
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="dataSource" ref="dataSource"/>
+        <property name="mapperLocations" value="classpath*:*/*Mapper*.xml"/>
+        <property name="typeHandlersPackage" value="com.oxygen.mbgtools.mybatis.plugin"/>
+    </bean>
+
+    <bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
+        <constructor-arg index="0" ref="sqlSessionFactory"/>
+    </bean>
+
+    &lt;!&ndash;https://blog.csdn.net/wangqing84411433/article/details/73610380&ndash;&gt;
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="annotationClass" value="javax.annotation.Resource"></property>
+        <property name="basePackage" value="com.oxygen.mbgtools.***.dal.mapper"/>
+        <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
+    </bean>-->
+
+    <!-- 配置Spring的事务管理器 -->
+    <!--<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource"/>
+    </bean>-->
+
+
+
+</beans>
