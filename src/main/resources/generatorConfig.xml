@@ -2,6 +2,7 @@
 <!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
         "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
 <generatorConfiguration>
+    <!--com.oxygen.mbgtools.mybatis.plugin.TkMyBatis3Impl-->
     <context id="base_resource" targetRuntime="MyBatis3">
         <property name="javaFileEncoding" value="UTF-8"/>
         <property name="javaFormatter" value="org.mybatis.generator.api.dom.DefaultJavaFormatter"/>
@@ -17,7 +18,7 @@
 
         <!--数据库链接URL，用户名、密码 -->
         <jdbcConnection
-                connectionURL="jdbc:mysql://127.0.0.1:3306/petbaby_manage?useUnicode=true&amp;characterEncoding=UTF-8&amp;useJDBCCompliantTimezoneShift=true&amp;useLegacyDatetimeCode=false&amp;serverTimezone=UTC&amp;useSSL=false"
+                connectionURL="jdbc:mysql://121.196.182.160:3306/test?useUnicode=true&amp;characterEncoding=UTF-8&amp;useJDBCCompliantTimezoneShift=true&amp;useLegacyDatetimeCode=false&amp;serverTimezone=UTC&amp;useSSL=false"
                 driverClass="com.mysql.cj.jdbc.Driver"  userId="root" password="root" />
 
         <!-- 类型解析器-->
@@ -69,19 +70,15 @@
             <generatedKey column="id" sqlStatement="JDBC"/>
         </table>
         -->
-        <table domainObjectName="RoleDO" tableName="role">
-            <generatedKey column="id" sqlStatement="JDBC"/>
-        </table>
-
-        <table domainObjectName="MenuDO" tableName="menu">
+        <table domainObjectName="TbVoucherDO" tableName="tb_voucher">
             <generatedKey column="id" sqlStatement="JDBC"/>
         </table>
 
         <!--MybatisGenerator生成WithBLOBS.java文件解决方案-->
-        <table domainObjectName="PetTrendsEntityDO" tableName="pet_trends_entity">
+        <!--<table domainObjectName="PetTrendsEntityDO" tableName="pet_trends_entity">
             <generatedKey column="id" sqlStatement="JDBC"/>
             <columnOverride column="content" javaType="java.lang.String" jdbcType="VARCHAR" />
-        </table>
+        </table>-->
 
     </context>
     <!--
